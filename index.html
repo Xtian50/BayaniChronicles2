@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Heroes - BayaniChronicles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #0033A0; /* Background set to blue */
+            color: #FFFFFF;
+            text-align: center;
+            line-height: 1.4; /* Adjusted line height */
+        }
+        header {
+            background: #CE1126; /* Philippine flag red */
+            color: white;
+            padding: 30px 0;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #FFCC00; /* Philippine flag yellow */
+            padding: 15px 0;
+            border-bottom: 4px solid #CE1126;
+        }
+        nav a {
+            color: #0033A0; /* Philippine flag blue */
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+            font-size: 1.5em;
+        }
+        nav a:hover {
+            color: #FFFFFF;
+        }
+        button {
+            position: relative;
+            padding: 10px 20px;
+            border-radius: 7px;
+            border: 1px solid rgba(61, 106, 255, 0.7);
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 2px;
+            background: #000000; /* Black background */
+            color: #fff;
+            overflow: hidden;
+            box-shadow: 0 0 0 0 transparent;
+            transition: all 0.2s ease-in;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: rgb(61, 106, 255); /* Change to blue on hover */
+            box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+            transition: all 0.2s ease-out;
+        }
+        button:hover::before {
+            animation: sh02 0.5s 0s linear;
+        }
+        button::before {
+            content: '';
+            display: block;
+            width: 0px;
+            height: 86%;
+            position: absolute;
+            top: 7%;
+            left: 0%;
+            opacity: 0;
+            background: #fff;
+            box-shadow: 0 0 50px 30px #fff;
+            transform: skewX(-20deg);
+        }
+        @keyframes sh02 {
+            from {
+                opacity: 0;
+                left: 0%;
+            }
+            50% {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                left: 100%;
+            }
+        }
+        button:active {
+            box-shadow: 0 0 0 0 transparent;
+            transition: box-shadow 0.2s ease-in;
+        }
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #000000;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            border: 2px solid #0033A0; /* Philippine flag blue */
+            color: #FFFFFF;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .e-card {
+            margin: 20px;
+            background: #CE1126; /* Philippine flag red */
+            position: relative;
+            width: 240px;
+            height: auto; /* Allow height to adjust based on content */
+            padding: 20px; /* Added padding for space around text */
+            border-radius: 16px;
+            overflow: hidden;
+            text-align: left; /* Align text to the left */
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.8); /* Yellow outer glow effect */
+            animation: cardBackground 10s linear infinite; /* Added animation */
+        }
+        .wave {
+            position: absolute;
+            width: 540px;
+            height: 700px;
+            opacity: 0.7; /* Adjusted opacity */
+            left: 0;
+            top: 0;
+            margin-left: -50%;
+            margin-top: -70%;
+            background: linear-gradient(135deg, #FFD700, #FFCC00); /* Strong yellow gradient */
+            animation: wave 8s infinite linear; /* Increased speed for dynamic movement */
+        }
+        .infotop {
+            text-align: center;
+            font-size: 16px; /* Increased font size */
+            position: relative; /* Changed to relative for better positioning */
+            color: rgb(255, 255, 255);
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Added text shadow for contrast */
+        }
+        .infotop h2 {
+            margin-bottom: 10px; /* Added margin for space */
+            font-size: 20px; /* Increased title font size */
+            font-weight: 700; /* Bold title */
+        }
+        .infotop p {
+            font-size: 15px; /* Improved paragraph font size */
+            line-height: 1.6; /* Better line height for readability */
+        }
+        .name {
+            font-size: 10px; /* Reduced font size */
+            font-weight: 100;
+            position: relative;
+            top: 1em;
+            text-transform: lowercase;
+        }
+        @keyframes wave {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes cardBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.5em;
+            }
+            nav a {
+                font-size: 1.2em;
+            }
+            button {
+                font-size: 12px;
+            }
+            main {
+                padding: 20px 10px;
+            }
+            .infotop {
+                font-size: 14px; /* Adjusted for smaller screens */
+            }
+        }
+        @media (max-width: 480px) {
+            header {
+                font-size: 1.2em;
+            }
+            nav a {
+                font-size: 1em;
+            }
+            button {
+                width: 100%;
+                font-size: 10px;
+            }
+            main {
+                padding: 15px 5px;
+            }
+        }
+        /* Glow Effect for Card Frames */
+        .e-card {
+            box-shadow: 0 0 10px 5px rgba(255, 204, 0, 0.8); /* Yellow glow */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BayaniChronicles</h1>
+        <p>The Lives of the Philippine Heroes in Motion</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <button onclick="location.href='Heroes.html'">Explore the Legends</button>
+    </nav>
+    <main>
+        <div class="e-card playing">
+            <div class="wave"></div>
+            <div class="infotop">
+                <h2>About Our Website</h2>
+                <p>BayaniChronicles is a platform dedicated to showcasing and celebrating the heroes of the Philippines. Through our content, we aim to share the stories and sacrifices of those who gave their lives for our freedom and progress.</p>
+            </div>
+        </div>
+
+        <div class="e-card playing">
+            <div class="wave"></div>
+            <div class="infotop">
+                <h2>Why We Created This Website</h2>
+                <p>Our goal is to honor these heroes and highlight their remarkable contributions to our history. We believe that remembering their stories is essential in shaping our identity as Filipinos and inspiring future generations.</p>
+            </div>
+        </div>
+
+        <div class="e-card playing">
+            <div class="wave"></div>
+            <div class="infotop">
+                <h2>How Heroes Have Shaped the Philippines Today</h2>
+                <p>The heroes of our nation are not just names in history books; they are inspirations that provide strength and hope to future generations. Their lessons and sacrifices continue to teach us the value of love for our country and the importance of unity.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 BayaniChronicles. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
